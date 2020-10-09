@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_app/pages/NotificationsPage.dart';
+import 'package:flutter_app/pages/ProfilePage.dart';
+import 'package:flutter_app/pages/SearchPage.dart';
+import 'package:flutter_app/pages/UploadPage.dart';
+import 'TimeLinePage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,10 +20,16 @@ class _HomePageState extends State<HomePage> {
   Scaffold buildHomeScreen() {
     return Scaffold(
       body: PageView(
-        children: <Widget>
+        children: <Widget>[
           TimeLinePage(),
-      )
-    )
+          SearchPage(),
+          UploadPage(),
+          NotificationsPage(),
+          ProfilePage(),
+
+        ],
+      ),
+    );
   }
 
   Scaffold buildSignInScreen() {
