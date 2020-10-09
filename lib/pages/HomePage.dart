@@ -13,8 +13,13 @@ class _HomePageState extends State<HomePage> {
 
 
 
-  Widget buildHomeScreen() {
-    return Text("already signed in");
+  Scaffold buildHomeScreen() {
+    return Scaffold(
+      body: PageView(
+        children: <Widget>
+          TimeLinePage(),
+      )
+    )
   }
 
   Scaffold buildSignInScreen() {
