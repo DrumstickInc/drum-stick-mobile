@@ -14,7 +14,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   bool isSignedIn = false;
+  PageController pageController;
+  int getPageIndex = 0
 
+  void initState(){
+    super.initState();
+
+    pageController = PageController();
+  }
+  void dispose(){
+    pageController.dispose();
+    super.dispose();
+  }
+
+  whenPageChanges(int pageIndex){
+    this.getPageIndex = pageIndex;
+  }
 
 
   Scaffold buildHomeScreen() {
@@ -28,7 +43,11 @@ class _HomePageState extends State<HomePage> {
           ProfilePage(),
 
         ],
+        controller: pageController,
+        onPageChanged: whenPageChanges,
+        physics: NeverScrollableScrollPhysics(),
       ),
+      bottomNavigationBar:
     );
   }
 
