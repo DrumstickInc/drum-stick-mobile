@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   bool isSignedIn = false;
   PageController pageController;
-  int getPageIndex = 0
+  int getPageIndex = 0;
 
   void initState(){
     super.initState();
@@ -27,10 +27,15 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+
+
   whenPageChanges(int pageIndex){
     this.getPageIndex = pageIndex;
   }
+  onTapChangePage(int pageIndex){
+    pageController.animateToPage(pageIndex, duration: Duration(milliseconds: 400), curve: Curves.bounceInOut,);
 
+  }
 
   Scaffold buildHomeScreen() {
     return Scaffold(
@@ -47,7 +52,21 @@ class _HomePageState extends State<HomePage> {
         onPageChanged: whenPageChanges,
         physics: NeverScrollableScrollPhysics(),
       ),
-      bottomNavigationBar:
+      bottomNavigationBar: CupertinoTabBar(
+        currentIndex: getPageIndex,
+        onTap: onTapChangePage,
+        backgroundColor: Theme.of(context). accentColor,
+        activeColor: Colors.white,
+        inactiveColor: Colors.blueGrey,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home)),
+          BottomNavigationBarItem(icon: Icon(Icons.search)),
+          BottomNavigationBarItem(icon: Icon(Icons.photo_camera, size: 37.0)),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite)),
+          BottomNavigationBarItem(icon: Icon(Icons.person)),
+
+        ]
+      )
     );
   }
 
@@ -89,7 +108,7 @@ class _HomePageState extends State<HomePage> {
       return buildHomeScreen();
     }
     else {
-      return buildSignInScreen();
+      return buildHomeScreen();
     }
   }
 }
