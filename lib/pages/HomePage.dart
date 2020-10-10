@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/EditProfilePage.dart';
 import 'package:flutter_app/pages/NotificationsPage.dart';
 import 'package:flutter_app/pages/ProfilePage.dart';
 import 'package:flutter_app/pages/SearchPage.dart';
+import 'package:flutter_app/pages/SettingsPage.dart';
 import 'package:flutter_app/pages/UploadPage.dart';
 import 'TimeLinePage.dart';
 
@@ -46,6 +48,8 @@ class _HomePageState extends State<HomePage> {
           UploadPage(),
           NotificationsPage(),
           ProfilePage(),
+          EditProfilePage(),
+          SettingsPage(),
 
         ],
         controller: pageController,
@@ -64,6 +68,8 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.photo_camera, size: 37.0)),
           BottomNavigationBarItem(icon: Icon(Icons.favorite)),
           BottomNavigationBarItem(icon: Icon(Icons.person)),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined)),
+          BottomNavigationBarItem(icon: Icon(Icons.settings)),
 
         ]
       )
