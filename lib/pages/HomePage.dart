@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home)),
           BottomNavigationBarItem(icon: Icon(Icons.search)),
-          BottomNavigationBarItem(icon: Icon(Icons.photo_camera, size: 37.0)),
+          BottomNavigationBarItem(icon: Icon(Icons.group, size: 37.0)),
           BottomNavigationBarItem(icon: Icon(Icons.favorite)),
           BottomNavigationBarItem(icon: Icon(Icons.person)),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined)),
