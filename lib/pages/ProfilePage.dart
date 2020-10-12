@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/HeaderWidget.dart';
 
@@ -57,7 +58,7 @@ class ProfilePage extends StatelessWidget {
                                 Text(
                                   "Posts",
                                   style: TextStyle(
-                                    color: Colors.redAccent,
+                                    color: Colors.green,
                                     fontSize: 22.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -83,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                                 Text(
                                   "Followers",
                                   style: TextStyle(
-                                    color: Colors.redAccent,
+                                    color: Colors.green,
                                     fontSize: 22.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -109,7 +110,7 @@ class ProfilePage extends StatelessWidget {
                                 Text(
                                   "Follow",
                                   style: TextStyle(
-                                    color: Colors.redAccent,
+                                    color: Colors.green,
                                     fontSize: 22.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -141,15 +142,18 @@ class ProfilePage extends StatelessWidget {
         ),
 
         Container(
+          alignment: Alignment.topLeft,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Icon(Icons.add_location),
                 Text(
                   "Location",
                   style: TextStyle(
-                    color: Colors.redAccent,
+
+                    color: Colors.green,
                     fontStyle: FontStyle.normal,
                     fontSize: 20.0,
                   ),
@@ -180,7 +184,7 @@ class ProfilePage extends StatelessWidget {
                 Text(
                   "Mowiki",
                   style: TextStyle(
-                    color: Colors.redAccent,
+                    color: Colors.green,
                     fontStyle: FontStyle.normal,
                     fontSize: 20.0,
                   ),
@@ -203,6 +207,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         Container(
+          alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
             child: Column(
@@ -211,7 +216,7 @@ class ProfilePage extends StatelessWidget {
                 Text(
                   "Languages",
                   style: TextStyle(
-                    color: Colors.redAccent,
+                    color: Colors.green,
                     fontStyle: FontStyle.normal,
                     fontSize: 20.0,
                   ),
@@ -260,7 +265,7 @@ class ProfilePage extends StatelessWidget {
                 constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                 alignment: Alignment.center,
                 child: Text(
-                            "Go to Homepage",
+                            "See Posts",
                 style:TextStyle(
                   color: Colors.white,
                   fontSize: 24.0,
