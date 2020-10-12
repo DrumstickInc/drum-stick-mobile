@@ -82,7 +82,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            "https://images.unsplash.com/photo-1512814078102-ed265de440fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                            "https://i.pinimg.com/originals/ba/27/d7/ba27d717a3b7632a03a168b27018ce20.jpg"
                         ),
                   ),
               ),
@@ -113,10 +113,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               height: 35,
 
             ),
-            buildTextField("Full name", "Dir Alex", false),
-            buildTextField("Email", "alex@gmail.com", false),
-            buildTextField("Password", "fdfd", true),
-            buildTextField("Location", "TLV, Israel", false),
+            buildTextField("Full name", "Binti Afriq", false),
+            buildTextField("Email", "binti@gmail.com", false),
+            buildTextField("Password", "wertyu", true),
+            buildTextField("Location", "Nairobi, Kenya", false),
             SizedBox(
               height: 35,
             ),
