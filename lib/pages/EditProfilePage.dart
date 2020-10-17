@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
+import 'package:flutter_app/pages/ProfilePage.dart';
+import 'package:flutter_app/pages/SettingsPage.dart';
 
 class SettingsUI extends StatelessWidget {
 
@@ -32,7 +34,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
             color: Colors.green,
 
           ),
-          onPressed: () {},
+          onPressed: () {Navigator.push(context,
+    MaterialPageRoute(builder: (context)=>SettingsPage()));},
         ),
         actions: [
           IconButton(
@@ -40,7 +43,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Icons.settings,
               color: Colors.green,
             ),
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                MaterialPageRoute(builder: (context)=>ProfilePage()));},
           ),
         ],
       ),

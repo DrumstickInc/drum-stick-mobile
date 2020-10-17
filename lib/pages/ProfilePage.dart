@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/EditProfilePage.dart';
 import 'package:flutter_app/widgets/HeaderWidget.dart';
-
-import 'EditProfilePage.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -70,13 +69,13 @@ class ProfilePage extends StatelessWidget {
                                 ),
                                 color: Colors.green,
                               ),
-                              child: IconButton(icon: Icon(Icons.edit),
-                                  color:Colors.white,
-                                  onPressed: () {
-                                Navigator.push(context,
-                                MaterialPageRoute(builder: (context)=>EditProfilePage()));
+                                child: IconButton(icon: Icon(Icons.edit),
+                                    color:Colors.white,
+                                    onPressed: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context)=>EditProfilePage()));
 
-                              })
+                                    })
 
                             )),
                       ],
