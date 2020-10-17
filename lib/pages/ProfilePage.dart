@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/HeaderWidget.dart';
 
+import 'EditProfilePage.dart';
+
 class ProfilePage extends StatelessWidget {
   @override
 
@@ -26,9 +28,59 @@ class ProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  CircleAvatar(
-                    backgroundImage: NetworkImage('https://i.pinimg.com/originals/ba/27/d7/ba27d717a3b7632a03a168b27018ce20.jpg'),
-                    radius: 50.0,
+                  Center(
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 4,
+                                color: Theme.of(context).scaffoldBackgroundColor
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 2,
+                                  blurRadius: 10,
+                                  color: Colors.black.withOpacity(0.1),
+                                  offset: Offset(0,10)
+                              )
+                            ],
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://i.pinimg.com/originals/ba/27/d7/ba27d717a3b7632a03a168b27018ce20.jpg"
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  width: 4,
+                                  color: Theme.of(context).scaffoldBackgroundColor,
+                                ),
+                                color: Colors.green,
+                              ),
+                              child: IconButton(icon: Icon(Icons.edit),
+                                  color:Colors.white,
+                                  onPressed: () {
+                                Navigator.push(context,
+                                MaterialPageRoute(builder: (context)=>EditProfilePage()));
+
+                              })
+
+                            )),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 10.0,

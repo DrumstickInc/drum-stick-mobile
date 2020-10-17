@@ -79,10 +79,12 @@ class _HomePageState extends State<HomePage> {
   Scaffold buildSignInScreen() {
     return Scaffold(
       body: Container(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+
             Text(
               "DrumStick",
               style: TextStyle(
