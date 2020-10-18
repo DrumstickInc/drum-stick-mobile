@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/CommunitiesPage.dart';
 import 'package:flutter_app/pages/EditProfilePage.dart';
 import 'package:flutter_app/pages/NotificationsPage.dart';
 import 'package:flutter_app/pages/ProfilePage.dart';
 import 'package:flutter_app/pages/SearchPage.dart';
 import 'package:flutter_app/pages/SettingsPage.dart';
 import 'package:flutter_app/pages/UploadPage.dart';
+import 'ChatHomePage.dart';
 import 'TimeLinePage.dart';
 
 class HomePage extends StatefulWidget {
@@ -45,11 +47,11 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           TimeLinePage(),
           SearchPage(),
-          UploadPage(),
+          CommunitiesPage(),
+          ChatHomePage(),
           NotificationsPage(),
           ProfilePage(),
-          EditProfilePage(),
-          SettingsPage(),
+
 
         ],
         controller: pageController,
@@ -66,10 +68,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.home)),
           BottomNavigationBarItem(icon: Icon(Icons.search)),
           BottomNavigationBarItem(icon: Icon(Icons.group, size: 37.0)),
+          BottomNavigationBarItem(icon: Icon(Icons.inbox)),
           BottomNavigationBarItem(icon: Icon(Icons.favorite)),
           BottomNavigationBarItem(icon: Icon(Icons.person)),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined)),
-          BottomNavigationBarItem(icon: Icon(Icons.settings)),
+
 
         ]
       )

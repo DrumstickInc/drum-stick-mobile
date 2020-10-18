@@ -35,7 +35,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
           ),
           onPressed: () {Navigator.push(context,
-    MaterialPageRoute(builder: (context)=>SettingsPage()));},
+    MaterialPageRoute(builder: (context)=>ProfilePage()));},
         ),
         actions: [
           IconButton(
@@ -44,7 +44,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               color: Colors.green,
             ),
             onPressed: () {Navigator.push(context,
-                MaterialPageRoute(builder: (context)=>ProfilePage()));},
+                MaterialPageRoute(builder: (context)=>SettingsPage()));},
           ),
         ],
       ),

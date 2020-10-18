@@ -47,8 +47,11 @@ class ProfilePage extends StatelessWidget {
                               )
                             ],
                             shape: BoxShape.circle,
+
                             image: DecorationImage(
                               fit: BoxFit.cover,
+
+
                               image: NetworkImage(
                                   "https://i.pinimg.com/originals/ba/27/d7/ba27d717a3b7632a03a168b27018ce20.jpg"
                               ),
