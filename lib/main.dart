@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         (
         scaffoldBackgroundColor: Colors.white,
         dialogBackgroundColor: Colors.black,
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.deepOrange,
         cardColor: Colors.white70,
         accentColor: Colors.black,
       ),
