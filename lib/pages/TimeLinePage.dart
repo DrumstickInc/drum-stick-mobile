@@ -16,16 +16,16 @@ class _TimeLinePageState extends State<TimeLinePage> {
       appBar: AppBar(
         leading: Icon(Icons.camera_alt),
         title: Text(
-          'InstaClone',
+          'DrumStick',
         ),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Icon(Icons.live_tv),
+            child: Icon(Icons.add_comment),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Icon(Icons.near_me),
+            child: Icon(Icons.search),
           ),
         ],
       ),
