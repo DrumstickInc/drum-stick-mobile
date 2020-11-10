@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/assets/drumstickmobile_icons.dart';
 import 'package:flutter_app/pages/components/posts/postwidget.dart';
+import 'package:flutter_app/pages/components/posts/postwidget2.dart';
 import 'package:flutter_app/pages/components/stories/storieswidget.dart';
 import 'package:flutter_app/widgets/HeaderWidget.dart';
 import 'package:flutter_app/widgets/ProgressWidget.dart';
@@ -14,7 +16,7 @@ class _TimeLinePageState extends State<TimeLinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.camera_alt),
+        leading: Icon(Drumstickmobile.drum),
         title: Text(
           'DrumStick',
         ),
@@ -33,6 +35,7 @@ class _TimeLinePageState extends State<TimeLinePage> {
         children: <Widget>[
           StoriesWidget(),
           PostWidget(),
+
         ],
       ),
     );

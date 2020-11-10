@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/models/posts.dart';
+import 'package:flutter_app/pages/components/comments/addcomment.dart';
+import 'package:flutter_app/pages/components/comments/comment.dart';
 import 'package:flutter_app/src/styles/app_colors.dart';
 
-class NewsFeedScreen extends StatefulWidget {
+class PostWidget2 extends StatefulWidget {
   @override
-  _NewsFeedScreenState createState() => _NewsFeedScreenState();
+  _PostWidget2State createState() => _PostWidget2State();
 }
 
-class _NewsFeedScreenState extends State<NewsFeedScreen> {
+class _PostWidget2State extends State<PostWidget2> {
   List<NewsFeedModel> newsFeedList;
 
   @override

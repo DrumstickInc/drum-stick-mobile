@@ -27,37 +27,37 @@ final User currentUser = User(
 // USERS
 final User greg = User(
   id: 1,
-  name: 'Greg',
+  name: 'Wilfred',
   imageUrl: 'assets/images/greg.jpg',
 );
 final User james = User(
   id: 2,
-  name: 'James',
+  name: 'Grishon',
   imageUrl: 'assets/images/james.jpg',
 );
 final User john = User(
   id: 3,
-  name: 'John',
+  name: 'Frank',
   imageUrl: 'assets/images/john.jpg',
 );
 final User olivia = User(
   id: 4,
-  name: 'Olivia',
+  name: 'Karen',
   imageUrl: 'assets/images/olivia.jpg',
 );
 final User sam = User(
   id: 5,
-  name: 'Sam',
+  name: 'Lifereze',
   imageUrl: 'assets/images/sam.jpg',
 );
 final User sophia = User(
   id: 6,
-  name: 'Sophia',
+  name: 'Njoki',
   imageUrl: 'assets/images/sophia.jpg',
 );
 final User steven = User(
   id: 7,
-  name: 'Steven',
+  name: 'Lifereze',
   imageUrl: 'assets/images/steven.jpg',
 );
 
@@ -129,7 +129,7 @@ List<Message> messages = [
   Message(
     sender: currentUser,
     time: '4:30 PM',
-    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
+    text: 'Just walked my dogs. It was a nice stroll',
     isLiked: false,
     unread: true,
   ),
