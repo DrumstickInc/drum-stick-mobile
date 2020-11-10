@@ -21,7 +21,7 @@ class Data{
   set password(String password){
     this.password=password;
   }
-
+//
   Map<String,dynamic> fromDataToMap() {
     var map= Map<String, dynamic>();
     map['email']=this._email;
