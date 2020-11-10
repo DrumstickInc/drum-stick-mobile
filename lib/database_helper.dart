@@ -45,6 +45,7 @@ class DatabaseHelper{
   
   void _createDb(Database db , int version)async{
     await db.execute('CREATE TABLE $userTable($colEmail TEXT PRIMARY KEY,$colName TEXT,$colPassword TEXT)');
+    print ("Table is created");
   }
 
   Future <List<Map<String, dynamic>>> getUser(String email) async{
@@ -52,10 +53,11 @@ class DatabaseHelper{
     var result=await db.query(userTable,columns: [colEmail,colPassword],where: '$colEmail = ?',whereArgs: [email]);
     return result;
   }
-
+//insertion
   Future<int> putUser(Data data) async{
     Database db=await this.database;
     int result=await db.insert(userTable, data.fromDataToMap());
     return result;
   }
+  //deletion
 }
