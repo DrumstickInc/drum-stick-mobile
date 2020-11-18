@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
+  //singletons can only have one project
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
   factory DatabaseHelper() => _instance;
 
@@ -16,12 +17,13 @@ class DatabaseHelper {
     if (_db != null) {
       return _db;
     }
+    //checking if database is null
     _db = await initDb();
     return _db;
   }
 
   DatabaseHelper.internal();
-
+//asynchronous method
   initDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, "main.db");
@@ -36,6 +38,7 @@ class DatabaseHelper {
   }
 
 //insertion
+  //the tomap maps with the table above
   Future<int> saveUser(User1 user) async {
     var dbClient = await db;
     int res = await dbClient.insert("User", user.toMap());
