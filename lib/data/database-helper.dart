@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:flutter_app/models/user.dart';
 import 'package:path/path.dart';
@@ -7,23 +6,25 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
-  //singletons can only have one project
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
   factory DatabaseHelper() => _instance;
 
   static Database _db;
+  final String tableUser = "User";
+  final String columnName = "name";
+  final String columnUserName = "username";
+  final String columnPassword = "password";
 
   Future<Database> get db async {
     if (_db != null) {
       return _db;
     }
-    //checking if database is null
     _db = await initDb();
     return _db;
   }
 
   DatabaseHelper.internal();
-//asynchronous method
+
   initDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, "main.db");
@@ -33,15 +34,17 @@ class DatabaseHelper {
 
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE User(id INTEGER PRIMARY KEY, username TEXT, password TEXT)");
+        "CREATE TABLE User(id INTEGER PRIMARY KEY, name TEXT, username TEXT, password TEXT, flaglogged TEXT)");
     print("Table is created");
   }
 
-//insertion
-  //the tomap maps with the table above
+  //insertion
   Future<int> saveUser(User user) async {
     var dbClient = await db;
+    print(user.name);
     int res = await dbClient.insert("User", user.toMap());
+    List<Map> list = await dbClient.rawQuery('SELECT * FROM User');
+    print(list);
     return res;
   }
 
@@ -50,5 +53,22 @@ class DatabaseHelper {
     var dbClient = await db;
     int res = await dbClient.delete("User");
     return res;
+  }
+  Future<User> selectUser(User user) async{
+    print("Select User");
+    print(user.username);
+    print(user.password);
+    var dbClient = await db;
+    List<Map> maps = await dbClient.query(tableUser,
+        columns: [columnUserName, columnPassword],
+        where: "$columnUserName = ? and $columnPassword = ?",
+        whereArgs: [user.username,user.password]);
+    print(maps);
+    if (maps.length > 0) {
+      print("User Exist !!!");
+      return user;
+    }else {
+      return null;
+    }
   }
 }

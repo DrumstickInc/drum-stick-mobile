@@ -1,23 +1,20 @@
 import 'package:flutter_app/pages/HomePage.dart';
-import 'package:flutter_app/pages/LoginPage.dart';
+
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'dart:convert' show json, base64, ascii;
 
-import 'log_in.dart';
-
-const SERVER_IP = 'http://192.168.1.167:5000';
-final storage = FlutterSecureStorage();
-
-void main() => runApp(new MyApp());
+import 'package:flutter_app/pages/home_page2.dart';
+import 'package:flutter_app/pages/login/login_page.dart';
+import 'package:flutter_app/pages/login/register.dart';
+//final storage = FlutterSecureStorage();
 
 final routes = {
-  '/login': (BuildContext context)=> new Login(),
-  '/home' : (BuildContext context)=> new HomePage(),
-  '/': (BuildContext context)=> new Login(),
+  '/login': (BuildContext context) => new LoginPage(),
+  '/home': (BuildContext context) => new HomePage2(),
+  '/register': (BuildContext context) => new RegisterPage(),
+  '/': (BuildContext context) => new LoginPage(),
 };
+
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -34,7 +31,6 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.black,
       ),
       routes: routes,
-      home: HomePage(),//need to remove it eventually
     );
   }
 }

@@ -1,8 +1,9 @@
-import 'package:flutter_app/data/rest_data.dart';
-import 'package:flutter_app/models/user1.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/data/rest-data.dart';
+import 'package:flutter_app/models/user.dart';
 
-abstract class LoginPageContract {
-  void onLoginSuccess(User1 user);
+abstract class LoginPageContract{
+  void onLoginSuccess(User user);
   void onLoginError(String error);
 }
 
@@ -11,10 +12,11 @@ class LoginPagePresenter {
   RestData api = new RestData();
   LoginPagePresenter(this._view);
 
-  doLogin(String username, String password) {
+//Simulator login
+  doLogin(String username, String password){
     api
         .login(username, password)
         .then((user) => _view.onLoginSuccess(user))
-        .catchError((onError) => _view.onLoginError(onError.toString()));
+        .catchError((onError) => _view.onLoginError(onError));
   }
 }
