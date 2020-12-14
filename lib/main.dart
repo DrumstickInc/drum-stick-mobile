@@ -9,7 +9,7 @@ import 'package:flutter_app/pages/login/register.dart';
 
 final routes = {
   '/login': (BuildContext context) => new LoginPage(),
-  '/home': (BuildContext context) => new HomePage2(),
+  '/home': (BuildContext context) => new HomePage(),
   '/register': (BuildContext context) => new RegisterPage(),
   '/': (BuildContext context) => new LoginPage(),
 };
