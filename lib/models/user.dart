@@ -1,31 +1,32 @@
 class User {
-  String _name;
-  String _username;
-  String _password;
-  String _flaglogged;
+  int id;
+  String name;
+  String username;
+  String password;
+  String flaglogged;
 
 
 
-  User(this._name, this._username, this._password, this._flaglogged);
-
-  User.map(dynamic obj) {
-    this._name = obj['name'];
-    this._username = obj['username'];
-    this._password = obj['password'];
-    this._flaglogged = obj['password'];
-  }
-
-  String get name => _name;
-  String get username => _username;
-  String get password => _password;
-  String get flaglogged => _flaglogged;
+  User(this.id, this.name, this.username, this.password, this.flaglogged);
 
   Map<String, dynamic> toMap() {
-    var map = new Map<String, dynamic>();
-    map["name"] = _name;
-    map["username"] = _username;
-    map["password"] = _password;
-    map["flaglogged"] = _flaglogged;
+    var map = <String, dynamic>{
+      'id': id,
+      'name': name,
+      'username': username,
+      'password': password,
+      'flaglogged': flaglogged,
+
+    };
     return map;
   }
+
+  User.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    name = map['name'];
+    username = map['usernmae'];
+    password = map['password'];
+    flaglogged = map['flaglogged'];
+  }
+
 }
