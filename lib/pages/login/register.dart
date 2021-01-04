@@ -93,7 +93,7 @@ class _RegisterPageState  extends State<RegisterPage> {
         form.save();
         var user = new User(_name, _username, _password, null);
         var db = new DatabaseHelper();
-        db.saveUser(user);
+        db.createUser(user);
         _isLoading = false;
         Navigator.of(context).pushNamed("/login");
       });

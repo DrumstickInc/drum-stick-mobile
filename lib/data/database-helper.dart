@@ -41,12 +41,12 @@ class DatabaseHelper {
     print("Table is created");
   }
   //add
-  Future<User> add(User user) async {
+  Future<User> createUser(User user) async {
     var dbClient = await db;
     user.id = await dbClient.insert('user', user.toMap());
     return user;
   }
-  Future<List<User>> getUser() async {
+  Future<List<User>> retrieveUser(User user) async {
     var dbClient = await db;
     List<Map> maps = await dbClient.query('user', columns: ['id', 'name','username', 'password']);
     List<User> users = [];
@@ -58,16 +58,9 @@ class DatabaseHelper {
     return users;
   }
   //insertion
-  Future<int> delete(int id) async {
-    var dbClient = await db;
-    return await dbClient.delete(
-      'user',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-  }
 
-  Future<int> update(User user) async {
+
+  Future<int> updateUser(User user) async {
     var dbClient = await db;
     return await dbClient.update(
       'user',
@@ -75,6 +68,31 @@ class DatabaseHelper {
       where: 'id = ?',
       whereArgs: [user.id],
     );
+  }
+  Future<int> deleteUser(int id) async {
+    var dbClient = await db;
+    return await dbClient.delete(
+      'user',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+  Future<User> selectUser(User user) async{
+    print("Select User");
+    print(user.username);
+    print(user.password);
+    var dbClient = await db;
+    List<Map> maps = await dbClient.query(tableUser,
+        columns: [columnUserName, columnPassword],
+        where: "$columnUserName = ? and $columnPassword = ?",
+        whereArgs: [user.username,user.password]);
+    print(maps);
+    if (maps.length > 0) {
+      print("User Exist !!!");
+      return user;
+    }else {
+      return null;
+    }
   }
 
   Future close() async {
