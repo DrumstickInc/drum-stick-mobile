@@ -39,23 +39,14 @@ class DatabaseHelper {
   }
 
   //insertion
-  Future<User> add(User user) async {
+  Future<int> saveUser(User user) async {
     var dbClient = await db;
-
-    user.id = await dbClient.insert("User", user.toMap());
-   // List<Map> list = await dbClient.rawQuery('SELECT * FROM User');
-
-    return user;
+    print(user.name);
+    int res = await dbClient.insert("User", user.toMap());
+    List<Map> list = await dbClient.rawQuery('SELECT * FROM User');
+    print(list);
+    return res;
   }
-  Future<User> add(User user) async {
-    var dbClient = await db;
-
-    user.id = await dbClient.insert("User", user.toMap());
-    // List<Map> list = await dbClient.rawQuery('SELECT * FROM User');
-
-    return user;
-  }
-
 
   //deletion
   Future<int> deleteUser(User user) async {

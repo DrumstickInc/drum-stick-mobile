@@ -1,36 +1,31 @@
-
 class User {
-  int id;
-  String name;
-  String username;
-  String password;
-  String flaglogged;
+  String _name;
+  String _username;
+  String _password;
+  String _flaglogged;
 
 
 
+  User(this._name, this._username, this._password, this._flaglogged);
 
-
-  User(this.id, this.name, this.username, this.password, this.flaglogged);
-
-
-
-  Map<String, dynamic> toMap() {
-    var map = <String, dynamic>{
-      'id': id,
-      'name': name,
-      'username': username,
-      'password': password,
-      'flaglogged': flaglogged
-    };
-    return map;
+  User.map(dynamic obj) {
+    this._name = obj['name'];
+    this._username = obj['username'];
+    this._password = obj['password'];
+    this._flaglogged = obj['password'];
   }
 
+  String get name => _name;
+  String get username => _username;
+  String get password => _password;
+  String get flaglogged => _flaglogged;
 
-
-// Implement toString to make it easier to see information about
-  // each dog when using the print statement.
-  @override
-  String toString()  {
-    return 'User{id: $id, name: $name, username: $username, password: $password, flaglogged: $flaglogged}';
+  Map<String, dynamic> toMap() {
+    var map = new Map<String, dynamic>();
+    map["name"] = _name;
+    map["username"] = _username;
+    map["password"] = _password;
+    map["flaglogged"] = _flaglogged;
+    return map;
   }
 }
