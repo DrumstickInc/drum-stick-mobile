@@ -7,11 +7,14 @@ class User {
 
 
 
-  User(this.id, this.name, this.username, this.password, this.flaglogged);
+  User(this.name, this.username, this.password, this.flaglogged);
+
+  User.map(r);
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'id': id,
+
       'name': name,
       'username': username,
       'password': password,
@@ -22,7 +25,8 @@ class User {
   }
 
   User.fromMap(Map<String, dynamic> map) {
-    id = map['id'];
+    id= map['id'];
+
     name = map['name'];
     username = map['usernmae'];
     password = map['password'];

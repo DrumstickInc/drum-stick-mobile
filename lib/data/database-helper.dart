@@ -10,10 +10,6 @@ class DatabaseHelper {
   factory DatabaseHelper() => _instance;
 
   static Database _db;
-  final String tableUser = "User";
-  final String columnName = "name";
-  final String columnUserName = "username";
-  final String columnPassword = "password";
 
   Future<Database> get db async {
     if (_db != null) {
@@ -23,13 +19,20 @@ class DatabaseHelper {
     return _db;
   }
 
+  final String tableUser = "User";
+  final String columnName = "name";
+  final String columnUserName = "username";
+  final String columnPassword = "password";
+
+
+
   DatabaseHelper.internal();
 
   initDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, "main.db");
-    var ourDb = await openDatabase(path, version: 1, onCreate: _onCreate);
-    return ourDb;
+    String path = join(documentDirectory.path, 'user.db');
+    var db = await openDatabase(path, version: 1, onCreate: _onCreate);
+    return db;
   }
 
   void _onCreate(Database db, int version) async {
@@ -37,38 +40,45 @@ class DatabaseHelper {
         "CREATE TABLE User(id INTEGER PRIMARY KEY, name TEXT, username TEXT, password TEXT, flaglogged TEXT)");
     print("Table is created");
   }
-
-  //insertion
-  Future<int> saveUser(User user) async {
+  //add
+  Future<User> add(User user) async {
     var dbClient = await db;
-    print(user.name);
-    int res = await dbClient.insert("User", user.toMap());
-    List<Map> list = await dbClient.rawQuery('SELECT * FROM User');
-    print(list);
-    return res;
+    user.id = await dbClient.insert('user', user.toMap());
+    return user;
   }
-
-  //deletion
-  Future<int> deleteUser(User user) async {
+  Future<List<User>> getUser() async {
     var dbClient = await db;
-    int res = await dbClient.delete("User");
-    return res;
-  }
-  Future<User> selectUser(User user) async{
-    print("Select User");
-    print(user.username);
-    print(user.password);
-    var dbClient = await db;
-    List<Map> maps = await dbClient.query(tableUser,
-        columns: [columnUserName, columnPassword],
-        where: "$columnUserName = ? and $columnPassword = ?",
-        whereArgs: [user.username,user.password]);
-    print(maps);
+    List<Map> maps = await dbClient.query('user', columns: ['id', 'name','username', 'password']);
+    List<User> users = [];
     if (maps.length > 0) {
-      print("User Exist !!!");
-      return user;
-    }else {
-      return null;
+      for (int i = 0; i < maps.length; i++) {
+        users.add(User.fromMap(maps[i]));
+      }
     }
+    return users;
+  }
+  //insertion
+  Future<int> delete(int id) async {
+    var dbClient = await db;
+    return await dbClient.delete(
+      'user',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<int> update(User user) async {
+    var dbClient = await db;
+    return await dbClient.update(
+      'user',
+      user.toMap(),
+      where: 'id = ?',
+      whereArgs: [user.id],
+    );
+  }
+
+  Future close() async {
+    var dbClient = await db;
+    dbClient.close();
   }
 }
