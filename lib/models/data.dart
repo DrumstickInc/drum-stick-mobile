@@ -36,3 +36,4 @@ class Data{
     this._password=map['password'];
   }
 }
+

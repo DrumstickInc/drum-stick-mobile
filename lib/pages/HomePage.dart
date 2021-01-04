@@ -60,9 +60,9 @@ class _HomePageState extends State<HomePage> {
             inactiveColor: Colors.blueGrey,
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home)),
-              BottomNavigationBarItem(icon: Icon(Icons.account_tree_outlined)),
-              BottomNavigationBarItem(icon: Icon(Icons.post_add, size: 37.0)),
-              BottomNavigationBarItem(icon: Icon(Icons.favorite)),
+              BottomNavigationBarItem(icon: Icon(Icons.account_tree)),
+              BottomNavigationBarItem(icon: Icon(Icons.group, size: 37.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.notifications)),
               BottomNavigationBarItem(icon: Icon(Icons.person)),
 
             ]

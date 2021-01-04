@@ -1,3 +1,5 @@
+
+
 import 'package:flutter_app/pages/HomePage.dart';
 
 import 'package:flutter/material.dart';
@@ -5,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/home_page2.dart';
 import 'package:flutter_app/pages/login/login_page.dart';
 import 'package:flutter_app/pages/login/register.dart';
+import 'package:flutter_app/models/sliderModel.dart';
+
 //final storage = FlutterSecureStorage();
 
 final routes = {
@@ -25,13 +29,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData
         (
         scaffoldBackgroundColor: Colors.white,
-        dialogBackgroundColor: Colors.black,
+        dialogBackgroundColor: Colors.indigo,
         primarySwatch: Colors.deepOrange,
         cardColor: Colors.white70,
-        accentColor: Colors.black,
+        accentColor: Colors.lime,
       ),
       routes: routes,
     );
   }
 }
-
