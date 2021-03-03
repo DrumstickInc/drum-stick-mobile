@@ -38,7 +38,7 @@ class SplashState extends State<SplashScreen> with TickerProviderStateMixin {
         ),
         child: Center(
             child: Image.asset(
-          "assets/images/linkedin_logo.png",
+          "assets/linkedin_logo.png",
          // color: AppColors.white,
           width: MediaQuery.of(context).size.width / 1.8,
         )),
