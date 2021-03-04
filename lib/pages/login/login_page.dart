@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         new Text(
-          "Sqflite App Login",
+          "Welcome to Maku5",
           textScaleFactor: 2.0,
         ),
         new Form(

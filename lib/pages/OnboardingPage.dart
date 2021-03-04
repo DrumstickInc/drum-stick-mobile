@@ -86,7 +86,7 @@ class _OnboardingPageState  extends State<OnboardingPage> {
                 onTap: (){
                   pageController.animateToPage(currentIndex + 1, duration: Duration(milliseconds: 400), curve: Curves.linear);
                 },
-                child: Text("SKIP")
+                child: Text("NEXT")
             ),
           ],
          )
@@ -94,16 +94,23 @@ class _OnboardingPageState  extends State<OnboardingPage> {
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
         height: Platform.isAndroid ? 70 : 60,
-          color: Colors.blue,
-        child: Text("GET STARTED NOW", style: TextStyle(
+          color: Colors.green,
+        child: RaisedButton(
+            child: Text("GET STARTED NOW", style: TextStyle(
           color: Colors.white,
-          fontWeight: FontWeight.w600
-        )),
+
+             ),
+             ),
+            color: Colors.green,
+            onPressed: (){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context)=>LoginPage()),
+            );
+            },
+         ) ,
 
 
-    ) ,
-
-    );
+      ));
 }
 }
 
@@ -126,10 +133,10 @@ class SliderTile extends StatelessWidget {
           ),
           Text(title, textAlign: TextAlign.center,style: TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 12
+              fontSize: 15
           ),),
           SizedBox(
-            height: 12,
+            height: 15,
           ),
           Text(desc, textAlign: TextAlign.center,style: TextStyle(
               fontWeight: FontWeight.w500,
