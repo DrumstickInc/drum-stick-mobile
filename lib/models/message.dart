@@ -1,4 +1,4 @@
-import 'package:flutter_app/models/user.dart';
+import 'package:flutter_app/models/user2.dart';
 
 class Message {
   final User sender;

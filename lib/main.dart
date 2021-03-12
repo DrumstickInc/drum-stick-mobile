@@ -1,30 +1,42 @@
+
+
 import 'package:flutter_app/pages/HomePage.dart';
+
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 
-void main()
-{
-  WidgetsFlutterBinding.ensureInitialized();
+import 'package:flutter_app/pages/home_page2.dart';
+import 'package:flutter_app/pages/login/login_page.dart';
+import 'package:flutter_app/pages/login/register.dart';
+import 'package:flutter_app/models/sliderModel.dart';
+import 'package:flutter_app/pages/OnboardingPage.dart';
 
-  runApp(MyApp());
-}
+//final storage = FlutterSecureStorage();
+
+final routes = {
+  '/login': (BuildContext context) => new LoginPage(),
+  '/home': (BuildContext context) => new HomePage(),
+  '/register': (BuildContext context) => new RegisterPage(),
+  '/': (BuildContext context) => new OnboardingPage(),
+};
+
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'BuddiesGram',
+    return new MaterialApp(
+      title: 'Maku5',
+      //home: ,
       debugShowCheckedModeBanner: false,
       theme: ThemeData
         (
         scaffoldBackgroundColor: Colors.white,
-        dialogBackgroundColor: Colors.black,
-        primarySwatch: Colors.grey,
+        dialogBackgroundColor: Colors.lightGreen,
+        primarySwatch: Colors.deepOrange,
         cardColor: Colors.white70,
-        accentColor: Colors.black,
+        accentColor: Colors.lime,
       ),
-      home: HomePage(),
+      routes: routes,
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/HeaderWidget.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -8,13 +9,18 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return Text('Search Page goes here.');
+    return Scaffold(
+      appBar: header(context, strTitle: "Gigs",),
+    );
   }
 }
 
 class UserResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("User Result here.");
+    return Text("List of Gigs go here.");
   }
 }
+
+
+
