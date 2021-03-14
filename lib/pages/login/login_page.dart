@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/data/database-helper.dart';
 import 'package:flutter_app/models/user.dart';
 import 'package:flutter_app/pages/login/login_presenter.dart';
+import 'package:flutter_app/utils/color.dart';
+import 'package:flutter_app/widgets/header_container.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -47,41 +49,90 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
   @override
   Widget build(BuildContext context) {
     _ctx = context;
-    var loginBtn = new RaisedButton(
+    var loginBtn = new MaterialButton(
       onPressed: _submit,
-      child: new Text("Login"),
-      color: Colors.green,
+        minWidth: double.infinity,
+        height: 60,
+        color: Colors.grey,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+          child: Text(
+            "  Login  ", style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
+            color: Colors.white,
+
+          ),
+          ),
     );
-    var registerBtn = new RaisedButton(
-      padding: const EdgeInsets.all(10.0),
+    var registerBtn = new MaterialButton(
       onPressed: _register,
-      child: new Text("Register"),
-      color: Colors.green,
+      minWidth: double.infinity,
+      height: 60,
+      color: Colors.grey,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Text(
+        "Create New Account", style: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        color: Colors.white,
+
+      ),
+      ),
     );
     var loginForm = new Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        new Text(
-          "Welcome to Maku5",
-          textScaleFactor: 2.0,
-        ),
         new Form(
           key: formKey,
           child: new Column(
             children: <Widget>[
-              new Padding(
-                padding: const EdgeInsets.all(20.0),
+              Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.white,
+                ),
+                padding: const EdgeInsets.all(10.0),
                 child: new TextFormField(
+                  style: TextStyle(color: Colors.black,fontSize: 20),
                   onSaved: (val) => _email = val,
-                  decoration: new InputDecoration(labelText: "Email"),
+                  decoration: new InputDecoration(
+                      border: OutlineInputBorder(),
+                    hintText: "Email",
+                    prefixIcon: Icon(Icons.email),
+                  ),
                 ),
               ),
-              new Padding(
-                padding: const EdgeInsets.all(20.0),
+              Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.white,
+                ),
+                padding: const EdgeInsets.all(10.0),
                 child: new TextFormField(
                   onSaved: (val) => _password = val,
-                  decoration: new InputDecoration(labelText: "Password"),
+                  style: TextStyle(color: Colors.black,fontSize: 20),
+                  decoration: new InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Password",
+                    prefixIcon: Icon(Icons.vpn_key),
+                  ),
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "Forgot Password?",
+                )
+
               )
             ],
           ),
@@ -92,20 +143,27 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
 
         registerBtn
       ],
+
     );
 
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Login Page"),
-      ),
+      resizeToAvoidBottomPadding: false,
       key: scaffoldKey,
-      body: new Container(
-        child: new Center(
-          child: loginForm,
-        ),
+      body :Container(
+          child: Column(
+            children: <Widget>[
+              HeaderContainer("Login"),
+
+              Container(
+                  child: loginForm
+              )
+            ],
+          )
       ),
+
     );
   }
+
 
   @override
   void onLoginError(String error) {

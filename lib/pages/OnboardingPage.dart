@@ -95,13 +95,19 @@ class _OnboardingPageState  extends State<OnboardingPage> {
         width: MediaQuery.of(context).size.width,
         height: Platform.isAndroid ? 70 : 60,
           color: Colors.green,
-        child: RaisedButton(
+        child: MaterialButton(
+          minWidth: double.infinity,
+          height: 60,
+          color: Colors.green,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
             child: Text("GET STARTED NOW", style: TextStyle(
           color: Colors.white,
 
              ),
              ),
-            color: Colors.green,
             onPressed: (){
             Navigator.push(context,
             MaterialPageRoute(builder: (context)=>LoginPage()),
